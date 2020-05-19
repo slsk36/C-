@@ -1,5 +1,0 @@
-D:\2020c#\If\If\bin\Debug\If.exe.config
-D:\2020c#\If\If\bin\Debug\If.exe
-D:\2020c#\If\If\bin\Debug\If.pdb
-D:\2020c#\If\If\obj\Debug\If.exe
-D:\2020c#\If\If\obj\Debug\If.pdb
