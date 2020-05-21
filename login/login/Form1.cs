@@ -27,7 +27,7 @@ namespace login
         {
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\305\Documents\Data.mdf;Integrated Security=True;Connect Timeout=30");
 
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from Table where USERNAME='" + ID_txt.Text+"' and PASSWORD='"+PW_txt.Text+"'", con);
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from USERINFO where USERNAME='" + ID_txt.Text+"' and PASSWORD='"+PW_txt.Text+"'", con);
 
             DataTable newTable = new DataTable();
 
@@ -37,8 +37,8 @@ namespace login
             {
                 //로그인 성공시
                 this.Hide();
-                Mainform mainform = new Mainform();
-                mainform.Show();
+                Mainform mainform1 = new Mainform();
+                mainform1.Show();
             }
             else
             {
