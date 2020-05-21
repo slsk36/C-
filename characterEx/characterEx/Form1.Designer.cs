@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace characterEx
 {
     partial class Form1
     {
