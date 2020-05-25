@@ -18,9 +18,10 @@ namespace BookManager
             Load();
         }
 
-        private static void Load()
+        public static void Load()
         {
-            try {
+            try
+            {
                 string booksOutput = File.ReadAllText(@"./Books.xml");
                 XElement booksXElement = XElement.Parse(booksOutput);
                 Books = (from item in booksXElement.Descendants("book")
@@ -30,11 +31,12 @@ namespace BookManager
                              Name = item.Element("name").Value,
                              Publisher = item.Element("publisher").Value,
                              Page = int.Parse(item.Element("page").Value),
-                             BorrowedAt = DateTime.Parse(item.Element("boorowedAt").Value),
+                             BorrowedAt = DateTime.Parse(item.Element("borrowedAt").Value),
                              isBorrowed = item.Element("isBorrowed").Value != "0" ? true : false,
                              UserId = int.Parse(item.Element("userId").Value),
                              UserName = item.Element("userName").Value
                          }).ToList<Book>();
+
                 string userOutput = File.ReadAllText(@".Users.xml");
                 XElement usersXElement = XElement.Parse(userOutput);
                 Users = (from item in usersXElement.Descendants("user")
