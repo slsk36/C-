@@ -13,7 +13,7 @@ namespace BookManager
         public static List<Book> Books = new List<Book>();
         public static List<User> Users = new List<User>();
 
-        static DataManager() 
+        static DataManager()
         {
             Load();
         }
@@ -37,8 +37,8 @@ namespace BookManager
                              UserName = item.Element("userName").Value
                          }).ToList<Book>();
 
-                string userOutput = File.ReadAllText(@".Users.xml");
-                XElement usersXElement = XElement.Parse(userOutput);
+                string usersOutput = File.ReadAllText(@"./Users.xml");
+                XElement usersXElement = XElement.Parse(usersOutput);
                 Users = (from item in usersXElement.Descendants("user")
                          select new User()
                          {
@@ -46,42 +46,48 @@ namespace BookManager
                              Name = item.Element("name").Value
                          }).ToList<User>();
             }
-            catch(FileLoadException exception) {
+            catch (FileLoadException exception)
+            {
+                // 파일이 없으면 예외 발생: 새로운 파일 생성
                 Save();
             }
         }
 
         public static void Save()
         {
-            string booksOutPut = "";
-            booksOutPut += "<books>\n";
-            foreach(var item in Books) {
-                booksOutPut += "<book>\n";
-                booksOutPut += " <isbn>" + item.Isbn + "</isbn>\n";
-                booksOutPut += " <name>" + item.Name + "</name>\n";
-                booksOutPut += " <publisher>" + item.Publisher + "</publisher>\n";
-                booksOutPut += " <page>" + item.Page + "</page>\n";
-                booksOutPut += " <borrowedAt>" + item.BorrowedAt.ToLongDateString() + "</borrowedAt>\n";
-                booksOutPut += " <isBorrowed>" + (item.isBorrowed ? 1:0) + "</isBorowed>\n";
-                booksOutPut += "<userId>" + item.UserId + "</userId>\n";
-                booksOutPut += "<userName>" + item.UserName + "</userName>\n";
-                booksOutPut += "</book>\n";
+            // 도서 XML 생성
+            string booksOutput = "";
+            booksOutput += "<books>\n";
+            foreach (var item in Books)
+            {
+                booksOutput += "<book>\n";
+                booksOutput += "  <isbn>" + item.Isbn + "</isbn>\n";
+                booksOutput += "  <name>" + item.Name + "</name>\n";
+                booksOutput += "  <publisher>" + item.Publisher + "</publisher>\n";
+                booksOutput += "  <page>" + item.Page + "</page>\n";
+                booksOutput += "  <borrowedAt>" + item.BorrowedAt.ToLongDateString() + "</borrowedAt>\n";
+                booksOutput += "  <isBorrowed>" + (item.isBorrowed ? 1 : 0) + "</isBorrowed>\n";
+                booksOutput += "  <userId>" + item.UserId + "</userId>\n";
+                booksOutput += "  <userName>" + item.UserName + "</userName>\n";
+                booksOutput += "</book>\n";
             }
-            booksOutPut += "</books>";
+            booksOutput += "</books>";
 
-            string userOutput = "";
-            userOutput += "<users>\n";
-            foreach(var item in Users) {
-                userOutput += "<users>\n";
-                userOutput += " <id>" + item.Id + "</id>\n";
-                userOutput += " <name>" + item.Name + "</name>\n";
-                userOutput += " </user>\n";
+            // 사용자 XML 생성
+            string usersOutput = "";
+            usersOutput += "<users>\n";
+            foreach (var item in Users)
+            {
+                usersOutput += "<user>\n";
+                usersOutput += "  <id>" + item.Id + "</id>\n";
+                usersOutput += "  <name>" + item.Name + "</name>\n";
+                usersOutput += "</user>\n";
             }
-            userOutput += "</users>";
+            usersOutput += "</users>";
 
-            File.WriteAllText(@"./Books.xml", booksOutPut);
-            File.WriteAllText(@"./Users.xml", userOutput);
-
+            // 저장
+            File.WriteAllText(@"./Books.xml", booksOutput);
+            File.WriteAllText(@"./Users.xml", usersOutput);
         }
     }
 }
