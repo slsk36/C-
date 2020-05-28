@@ -45,7 +45,7 @@ namespace quiz6_1
             }
         }
 
-        private int timer = 10;
+        private int timer = 6;
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -57,10 +57,10 @@ namespace quiz6_1
             else
             {
                 label_time.Text = "Time Over";
-                this.Hide();
-                Form2 gameover = new Form2();
-                gameover.Show();
-                timer1.Stop(); //코드 누락시 무한팝업
+                //this.Hide();
+                //Form2 gameover = new Form2();
+                //gameover.Show();
+                //timer1.Stop(); //코드 누락시 무한팝업
             }
         }
     }
