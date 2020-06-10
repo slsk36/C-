@@ -12,67 +12,92 @@ namespace SimpleCalc1
 {
     public partial class Form1 : Form
     {
-        private string res;
+        private int result=0;
+        private int num = 0; 
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void btn_Click(object sender, EventArgs e)
+
+        public void btn_Click(object sender, EventArgs e)
         {
+            /*
             switch (((Button)sender).Text)
             {
-                case "0":
-                case "1":
-                case "2":
-                case "3":
-                case "4":
-                case "5":
-                case "6":
-                case "7":
-                case "8":
-                case "9":
                 case "+":
+                    plus();
+                    break;
                 case "-":
                 case "×":
                 case "÷":
+                case "=":
+                    textBox1.Text = num.ToString();
+                    break;
+                    
+                    
+                    
                     res += ((Button)sender).Text;
                     textBox1.Text = res;
-                    //Console.WriteLine("0누름"); 디버깅을 위한 코드
-                    break;
-                case "CE":
-                    textBox1.Clear();
-                    res = string.Empty;
-                    break;
-                case "=":
+
                     char[] op = { '+', '-', '×', '÷' };
                     string[] opStr = res.Split(op);
-                    foreach(var item in opStr)
+                    
+                    foreach (var item in opStr)
                     {
                         Console.WriteLine(item);
-                        int result = Int32.Parse(item);
-                        Console.WriteLine(result);
-
                     }
+                    Console.WriteLine(res);
                     
 
                     char[] val = { '0','1','2','3','4','5','6','7','8','9' };
                     string[] valStr = res.Split(val);
-                    foreach(var item1 in valStr)
+                    
+                    foreach (var item1 in valStr)
                     {
-                        //Console.WriteLine(item1);
-                        
-
 
                     }
                     
-
-
-
+                    int result = 0;
+                        if(valStr[i] != "")
+                        {
+                            int num = int.Parse(textBox1.Text);
+                            switch (valStr[i])
+                            {
+                                case "+":
+                                    result += num;
+                                    break;
+                                case "-":
+                                    result -= num;
+                                    break;
+                                case "×":
+                                    result *= num;
+                                    break;
+                                case "÷":
+                                    result /= num;
+                                    break;
+                            }
+                        textBox1.Text = result.ToString();
+                    }
+                    
+                    
                     break;
-                
+                    
+
+                case "CE":
+                    textBox1.Clear();
+                    res = string.Empty;
+                    break;
+
             }
+            */
+        }
+
+        private void num_Click(object sender, EventArgs e) //0~9까지 클릭했을때 이벤트
+        {
+            Button btn = (Button)sender;
+            this.textBox1.Text += btn.Text;
         }
     }
 }
