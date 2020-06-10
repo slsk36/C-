@@ -32,7 +32,7 @@
             this.btn_click = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_plus = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.btn_equal = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -88,16 +88,16 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.num_Click);
             // 
-            // button4
+            // btn_plus
             // 
-            this.button4.Font = new System.Drawing.Font("굴림", 16F);
-            this.button4.Location = new System.Drawing.Point(285, 117);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(63, 41);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "+";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.btn_Click);
+            this.btn_plus.Font = new System.Drawing.Font("굴림", 16F);
+            this.btn_plus.Location = new System.Drawing.Point(285, 117);
+            this.btn_plus.Name = "btn_plus";
+            this.btn_plus.Size = new System.Drawing.Size(63, 41);
+            this.btn_plus.TabIndex = 4;
+            this.btn_plus.Text = "+";
+            this.btn_plus.UseVisualStyleBackColor = true;
+            this.btn_plus.Click += new System.EventHandler(this.btn_plus_Click);
             // 
             // button5
             // 
@@ -209,16 +209,16 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.num_Click);
             // 
-            // button15
+            // btn_equal
             // 
-            this.button15.Font = new System.Drawing.Font("굴림", 16F);
-            this.button15.Location = new System.Drawing.Point(205, 316);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(63, 41);
-            this.button15.TabIndex = 14;
-            this.button15.Text = "=";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.btn_Click);
+            this.btn_equal.Font = new System.Drawing.Font("굴림", 16F);
+            this.btn_equal.Location = new System.Drawing.Point(205, 316);
+            this.btn_equal.Name = "btn_equal";
+            this.btn_equal.Size = new System.Drawing.Size(63, 41);
+            this.btn_equal.TabIndex = 14;
+            this.btn_equal.Text = "=";
+            this.btn_equal.UseVisualStyleBackColor = true;
+            this.btn_equal.Click += new System.EventHandler(this.btn_equal_Click);
             // 
             // button16
             // 
@@ -238,7 +238,7 @@
             this.ClientSize = new System.Drawing.Size(387, 388);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button14);
-            this.Controls.Add(this.button15);
+            this.Controls.Add(this.btn_equal);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button10);
@@ -248,7 +248,7 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button8);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btn_plus);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_click);
@@ -266,7 +266,7 @@
         private System.Windows.Forms.Button btn_click;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_plus;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
@@ -277,7 +277,7 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btn_equal;
         private System.Windows.Forms.Button button16;
     }
 }

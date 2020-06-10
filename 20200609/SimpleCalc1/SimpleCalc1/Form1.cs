@@ -12,13 +12,16 @@ namespace SimpleCalc1
 {
     public partial class Form1 : Form
     {
-        private int result=0;
-        private int num = 0; 
+        private string op;    //연산자
+        private int num = 0;  //숫자
+        
 
         public Form1()
         {
             InitializeComponent();
         }
+
+
 
 
         public void btn_Click(object sender, EventArgs e)
@@ -27,17 +30,12 @@ namespace SimpleCalc1
             switch (((Button)sender).Text)
             {
                 case "+":
-                    plus();
-                    break;
                 case "-":
                 case "×":
                 case "÷":
                 case "=":
                     textBox1.Text = num.ToString();
                     break;
-                    
-                    
-                    
                     res += ((Button)sender).Text;
                     textBox1.Text = res;
 
@@ -96,8 +94,23 @@ namespace SimpleCalc1
 
         private void num_Click(object sender, EventArgs e) //0~9까지 클릭했을때 이벤트
         {
-            Button btn = (Button)sender;
-            this.textBox1.Text += btn.Text;
+            Button btn = (Button)sender; //버튼의 숫자를 받아옴
+            textBox1.Text += btn.Text;   //출력창에 버튼의 text를 추가
+        }
+
+        private void btn_plus_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender; //버튼의 숫자를 받아옴
+            textBox1.Text += btn.Text;   //출력창에 버튼의 text를 추가
+            textBox1.Text = (num + int.Parse(textBox1.Text)).ToString();
+            num = int.Parse(textBox1.Text);
+        }
+
+        private void btn_equal_Click(object sender, EventArgs e)
+        {
+            textBox1.Text;
+
+
         }
     }
 }
