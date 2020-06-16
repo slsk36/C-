@@ -5,43 +5,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OraConn1
+namespace oraConn2
 {
-    class Program
+    class DbManager
     {
+        static DbManager instance;
         static string ORADB = "Data Source=(DESCRIPTION=(ADDRESS_LIST=" +
             "(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))" +
             "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));" +
-            "User Id=HR;Password=1234;";
+            "User Id=HR;Password=1234;"; //기본 접속정보
 
-        static void dbConnect(OracleConnection conn)
+        OracleConnection conn;
+        OracleCommand cmd;
+        OracleDataReader dr;
+
+        public static DbManager getInstance()
+        {
+            if(instance == null)
+            {
+                instance = new DbManager();
+            }
+            return instance;
+        }       //싱글톤
+
+        public DbManager() //기본생성자
+        {
+            conn = new OracleConnection(ORADB);
+            cmd = new OracleCommand();
+        }
+
+        ~DbManager() //소멸자
+        {
+            dbClose();
+        }
+
+        public void dbConnect()
         {
             try
             {
                 conn.Open();
                 Console.WriteLine("오라클 접속 성공");
             }
-            catch(OracleException e)
+            catch (OracleException e)
             {
                 Console.WriteLine("오라클 접속 오류:" + e.Message);
                 return;
             }
         }
 
-        static void dbClose(OracleConnection conn)
+        public void dbClose()
         {
             try
             {
                 conn.Clone();
                 Console.WriteLine("오라클 접속 해제");
             }
-            catch(OracleException e)
+            catch (OracleException e)
             {
                 Console.WriteLine("오라클 해제오류: " + e.Message);
             }
         }
-
-        static void createTable(OracleConnection conn, OracleCommand cmd)
+        public void createTable()
         {
             try
             {
@@ -55,8 +79,10 @@ namespace OraConn1
                     "by 1 start with 1";
                 cmd.CommandText = query2;
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("테이블 및 시퀀스 생성 성공");
-            }catch(OracleException e)
+                
+                Console.WriteLine("테이블 및 시퀀스 생성 성공\n\n\n");
+            }
+            catch (OracleException e)
             {
                 Console.WriteLine("테이블 생성 에러 번호: " + e.Number);
                 Console.WriteLine("테이블 생성 에러 코드: " + e.ErrorCode.ToString());
@@ -65,7 +91,7 @@ namespace OraConn1
 
         }
 
-        static void dropTable(OracleConnection conn, OracleCommand cmd)
+        public void dropTable()
         {
             try
             {
@@ -78,8 +104,9 @@ namespace OraConn1
                 string query2 = "drop sequence seq_id";
                 cmd.CommandText = query2;
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("테이블 및 쿼리 삭제 완료");
-            } catch(OracleException e)
+                Console.WriteLine("테이블 및 쿼리 삭제 완료\n\n\n");
+            }
+            catch (OracleException e)
             {
                 Console.WriteLine("테이블 삭제 에러 번호: " + e.Number);
                 Console.WriteLine("테이블 삭제 에러 코드: " + e.ErrorCode.ToString());
@@ -87,24 +114,9 @@ namespace OraConn1
             }
 
         }
-        //데이터 추가
-        //static void insertDB(OracleConnection conn, OracleCommand cmd)
-        //{
-        //    string name = "홍길동";
-        //    int age = 300;
-        //    string addr = "북한";
-        //    string query = string.Format("insert into bigdata1 values (seq_id.nextval, '{0}','{1}','{2}')",
-        //        name, age, addr);
-        //    Console.WriteLine("데이터 추가 완료");
-        //    cmd.Connection = conn;
-        //    cmd.CommandText = query;
-        //    cmd.ExecuteNonQuery();
-        //}
 
-        //랜덤 데이터 추가
-        static void insertDB(OracleConnection conn, OracleCommand cmd, string name, int age, string addr)
+        public void insertDB(string name, string age, string addr)
         {
-            
             string query = string.Format("insert into bigdata1 values (seq_id.nextval, '{0}','{1}','{2}')",
                 name, age, addr);
             Console.WriteLine("데이터 추가 완료");
@@ -113,10 +125,10 @@ namespace OraConn1
             cmd.ExecuteNonQuery();
         }
 
-        static void showDB(OracleConnection conn, OracleCommand cmd)
+        public void showDB()
         {
             int count = 1;
-            
+
             string query = "select * from bigdata1 order by id desc";
             cmd.Connection = conn;
             cmd.CommandText = query;
@@ -141,85 +153,24 @@ namespace OraConn1
             }
             dr.Close();
         }
-        
-        static void updateDB(OracleConnection conn, OracleCommand cmd, string newName, string oldName)
+
+        public void updateDB(string newName, string oldName)
         {
             string query = string.Format("update bigdata1 set name='{0}' where name='{1}'",
-                newName,oldName); //위에 매개변수로 넣어서 처리함
+                newName, oldName); //위에 매개변수로 넣어서 처리함
             Console.WriteLine("데이터 수정 완료");
             cmd.Connection = conn;
             cmd.CommandText = query;
             cmd.ExecuteNonQuery();
         }
 
-        static void deleteDB(OracleConnection conn, OracleCommand cmd, string name)
+        public void deleteDB(string name)
         {
             string query = string.Format("delete bigdata1 where name='{0}'", name); //이름정보를 찾아와서 삭제를 시키겠다
             Console.WriteLine("데이터 삭제 완료");
             cmd.Connection = conn;
             cmd.CommandText = query;
             cmd.ExecuteNonQuery();
-        }
-
-
-        static void Main(string[] args)
-        {
-            OracleConnection conn = new OracleConnection(ORADB);
-            OracleCommand cmd = new OracleCommand();
-
-            dbConnect(conn); //db연결
-            while (true)
-            {
-                Console.WriteLine("------------------");
-                Console.WriteLine("오라클 DB관리 프로그램 v1.0");
-                Console.WriteLine("------------------");
-                Console.WriteLine("1. 테이블 생성 ");
-                Console.WriteLine("2. 테이블 삭제 ");
-                Console.WriteLine("3. 데이터 추가");
-                Console.WriteLine("4. 데이터 보기");
-                Console.WriteLine("5. 데이터 수정");
-                Console.WriteLine("6. 데이터 삭제");
-                Console.WriteLine("7. 오라클 DB해제 및 프로그램 종료");
-            
-                Console.WriteLine("------------------");
-                Console.Write("메뉴 선택: ");
-                string menu = Console.ReadLine();
-                //Console.WriteLine("------------------");
-
-                switch (menu)
-                {
-                    case "1":
-                        createTable(conn, cmd);// 테이블 생성
-                        break;
-                    case "2":
-                        dropTable(conn, cmd); // 테이블 삭제
-                        break;
-                    case "3":                   //랜덤한 데이터 추가
-                        for(int i=0; i<100;i++)
-                        insertDB(conn, cmd, RandomData.getName(), RandomData.getAge(), RandomData.getAddr());  // 데이터 추가
-                        break;
-                                              //ctrl + k +d 코드 자동정렬
-                    case "4":
-                        showDB(conn,cmd); //데이터 보기
-                        break;
-                    case "5":
-                        Console.WriteLine("이름 찾기: ");
-                        string oldName = Console.ReadLine();
-                        Console.WriteLine("이름 바꾸기: ");
-                        string newName = Console.ReadLine();
-                        updateDB(conn, cmd, newName, oldName); //데이터 수정
-                        break;
-                    case "6":
-                        Console.WriteLine("삭제할 이름: ");
-                        string Name = Console.ReadLine();
-                        deleteDB(conn, cmd, Name ); //데이터 삭제
-                        break;
-                    case "7":
-                        dbClose(conn);       //db접속해제
-                        Environment.Exit(0); //종료
-                        break;
-                }
-            }
         }
     }
 }
