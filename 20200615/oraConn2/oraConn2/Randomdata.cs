@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OraConn1
+namespace oraConn2
 {
-    class RandomData
+    public class RandomData
     {
         static string[] first = { "a", "b", "c", "d", "e" };
         static string[] mid = { "f", "g", "h", "i", "j" };

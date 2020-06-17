@@ -115,14 +115,22 @@ namespace oraConn2
 
         }
 
-        public void insertDB(string name, string age, string addr)
+        public void insertDB(string name, int age, string addr)
         {
-            string query = string.Format("insert into bigdata1 values (seq_id.nextval, '{0}','{1}','{2}')",
-                name, age, addr);
-            Console.WriteLine("데이터 추가 완료");
-            cmd.Connection = conn;
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
+            try
+            {
+
+                string query = string.Format("insert into bigdata1 values (seq_id.nextval, '{0}','{1}','{2}')", name, age, addr);
+                Console.WriteLine("데이터 추가 완료");
+                cmd.Connection = conn;
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception except)
+            {
+                Console.WriteLine($"Message : {except.Message}");
+                Console.WriteLine($"Message : {except.StackTrace}");
+            }
         }
 
         public void showDB()

@@ -16,6 +16,7 @@ namespace oraConn2
             //new DbManager().dbConnect(); 아래 코드와 같은 동작임
 
             DbManager.getInstance().dbConnect(); //싱글톤 디자인 패턴 위와 같은 코드
+            
 
             while (true)
             {
@@ -32,7 +33,11 @@ namespace oraConn2
 
                 Console.WriteLine("------------------");
                 Console.Write("메뉴 선택: ");
+                string name = "tempName", addr = "tempAddr";
+                int age = 20 ;
+
                 string menu = Console.ReadLine();
+                
 
                 switch (menu)
                 {
@@ -44,12 +49,13 @@ namespace oraConn2
                         break;
                     case "3":
                         for (int i = 0; i < 100; i++)
-                            DbManager.getInstance().insertDB();
+                            DbManager.getInstance().insertDB(RandomData.getName(), RandomData.getAge(), RandomData.getAddr());
                         break;
                     case "4":
                         DbManager.getInstance().showDB();
                         break;
                     case "5":
+                        DbManager.getInstance().updateDB();
                         break;
                     case "6":
                         break;
