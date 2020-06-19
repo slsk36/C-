@@ -118,19 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="checkmark_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\checkmark_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1st_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1st_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="circled_2_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_2_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add_row_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add_row_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="circled_4_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_4_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="refresh_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="circled_3_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_3_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sql_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sql_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="circled_8_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_8_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_6_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_6_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_3_104px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_3_104px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_5_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_5_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="온워드 앱 포스터" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\온워드 앱 포스터.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_7_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_7_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

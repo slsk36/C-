@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Crud.Properties {
+namespace kiosk_nn1.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Crud.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Crud.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("kiosk_nn1.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace Crud.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap add_row_26px {
+        internal static System.Drawing.Bitmap _1st_104px {
             get {
-                object obj = ResourceManager.GetObject("add_row_26px", resourceCulture);
+                object obj = ResourceManager.GetObject("1st_104px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Crud.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap checkmark_26px {
+        internal static System.Drawing.Bitmap circled_2_104px {
             get {
-                object obj = ResourceManager.GetObject("checkmark_26px", resourceCulture);
+                object obj = ResourceManager.GetObject("circled_2_104px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Crud.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap delete_26px {
+        internal static System.Drawing.Bitmap circled_3_104px {
             get {
-                object obj = ResourceManager.GetObject("delete_26px", resourceCulture);
+                object obj = ResourceManager.GetObject("circled_3_104px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Crud.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap refresh_26px {
+        internal static System.Drawing.Bitmap circled_3_104px1 {
             get {
-                object obj = ResourceManager.GetObject("refresh_26px", resourceCulture);
+                object obj = ResourceManager.GetObject("circled_3_104px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,59 @@ namespace Crud.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap sql_26px {
+        internal static System.Drawing.Bitmap circled_4_104px {
             get {
-                object obj = ResourceManager.GetObject("sql_26px", resourceCulture);
+                object obj = ResourceManager.GetObject("circled_4_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap circled_5_104px {
+            get {
+                object obj = ResourceManager.GetObject("circled_5_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap circled_6_104px {
+            get {
+                object obj = ResourceManager.GetObject("circled_6_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap circled_7_104px {
+            get {
+                object obj = ResourceManager.GetObject("circled_7_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap circled_8_104px {
+            get {
+                object obj = ResourceManager.GetObject("circled_8_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 온워드_앱_포스터 {
+            get {
+                object obj = ResourceManager.GetObject("온워드 앱 포스터", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
