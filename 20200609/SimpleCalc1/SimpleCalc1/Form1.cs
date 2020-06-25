@@ -106,11 +106,6 @@ namespace SimpleCalc1
             num = int.Parse(textBox1.Text);
         }
 
-        private void btn_equal_Click(object sender, EventArgs e)
-        {
-            textBox1.Text;
-
-
-        }
+        
     }
 }
