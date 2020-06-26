@@ -13,7 +13,6 @@ namespace Crud
 {
     public partial class Form1 : Form
     {
-        string strconn = "Data Source=192.168.0.200;Initial Catalog=nn_20200611;Persist Security Info=True;User ID=sa;Password=8765432!";
         //SQL connection 에 대한 명령어를 변수 설정
         public Form1()
         {
@@ -31,7 +30,7 @@ namespace Crud
         {
             DataSet ds = new DataSet();
 
-            SqlConnection sqlcon = new SqlConnection(strconn);
+            SqlConnection sqlcon = new SqlConnection(Infomation.Strconn);
             sqlcon.Open();  //접속
 
             SqlDataAdapter adpt = new SqlDataAdapter("select * from MemberTable", sqlcon);
@@ -65,25 +64,31 @@ namespace Crud
         private void btn_select_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Select 버튼 클릭");
-            WriteLog("Select 버튼 클릭");
+            //WriteLog("Select 버튼 클릭");
             DataSet ds = new DataSet();
 
-            SqlConnection sqlcon = new SqlConnection(strconn);
+            SqlConnection sqlcon = new SqlConnection(Infomation.Strconn);
             sqlcon.Open();  //접속
 
-            SqlDataAdapter adpt = new SqlDataAdapter("select * from MemberTable", sqlcon);
-            adpt.Fill(ds);
+            SqlDataAdapter adpt = new SqlDataAdapter("select * from MemberTable where name", sqlcon);
+            adpt.Fill(ds,"MemberTable");
 
-            dataGridView1.DataSource = ds.Tables[0]; //datasource를 뷰에 집어넣는다
+            label1.Text = ds.Tables[0].Rows[0][0].ToString();
+
+            //DataTable dt = new DataTable();
+
+            //dataGridView1.DataSource = ds.Tables[0]; //datasource를 뷰에 집어넣는다
+            //label1.Text = ds.Tables
+
             sqlcon.Close();
         }
 
         private void btn_insert_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Insert 완료");
-            WriteLog("Insert 완료");
+            //WriteLog("Insert 완료");
 
-            SqlConnection conn = new SqlConnection(strconn);
+            SqlConnection conn = new SqlConnection(Infomation.Strconn);
             conn.Open(); //열면 반드시 닫아주기
             SqlCommand cmd = new SqlCommand("insert into MemberTable" +
                 "(ID,Name,age,rgdate,etc)" + "values" + "(@ID,@name,@age,getdate(),@etc)", conn);
@@ -105,7 +110,7 @@ namespace Crud
             //MessageBox.Show("update 완료");
             WriteLog("update 완료");
 
-            SqlConnection conn = new SqlConnection(strconn);
+            SqlConnection conn = new SqlConnection(Infomation.Strconn);
 
             conn.Open();
 
@@ -116,6 +121,7 @@ namespace Crud
             cmd.Parameters.AddWithValue("@etc", txt_etc.Text);
             cmd.ExecuteNonQuery();
 
+
             conn.Close();
             selectQuery(); //무조건 클로즈하고 나서 넣기
 
@@ -125,7 +131,7 @@ namespace Crud
         {
             //MessageBox.Show("delete 완료");
             WriteLog("delete 완료");
-            SqlConnection conn = new SqlConnection(strconn);
+            SqlConnection conn = new SqlConnection(Infomation.Strconn);
             conn.Open();
 
             SqlCommand cmd = new SqlCommand("delete from MemberTable where ID = @ididid", conn);
